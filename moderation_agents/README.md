@@ -1,4 +1,4 @@
-**Moderation & Content safety**
+🛡️ **Moderation & Content safety**
 
 These AI Agents can be used to keep product spaces clean and safe.
 They can detect risky content, reduce manual review load and improve content quality before publication.
@@ -7,7 +7,7 @@ They are great tools for marketplace environments where high-volume user-generat
 
 ⸻
 
-**What’s inside**
+🔍 **What’s inside**
 
 • Listing Moderation Agent: checks listing titles, descriptions and metadata to detect prohibited content, scams, low quality or inconsistencies.
 
@@ -19,7 +19,7 @@ They are great tools for marketplace environments where high-volume user-generat
 
 ⸻
 
-**Why these agents matter**
+👉 **Why these agents matter**
 
 Moderation issues harm trust, increase operational cost and slow down the publishing flow.
 These agents are built to:
@@ -36,7 +36,7 @@ These agents are built to:
 
 ⸻
 
-**Structure of each agent**
+🛠️ **Structure of each agent**
 
 Each agent folder follows a consistent structure:
 
