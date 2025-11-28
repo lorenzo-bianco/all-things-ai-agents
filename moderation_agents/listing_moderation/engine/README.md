@@ -58,7 +58,7 @@ The moderation agent relies on four components:
 
 •	The system message defines identity, reasoning style, and operational boundaries.
 
-•	The prompt defines the workflow: what to analyze, how to output the decision, and which rules apply. A dedicated section explains this in detail (/listing_moderation/prompt).
+•	The prompt defines the workflow: what to analyze, how to output the decision, and which rules apply. A dedicated section explains this in detail ([/listing_moderation/prompt](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/listing_moderation/prompt)).
 
 2. Chat Model
 
