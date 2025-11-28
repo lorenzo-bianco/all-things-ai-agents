@@ -1,18 +1,20 @@
-## 🤖 Overview of the moderation engine anatomy
+## 🤖 Rule engine of the Moderation Agent
 
-The moderation agent needs a simple, explicit rule engine that orchestrates how content flows through the system. 
+The moderation agent needs a simple, explicit rule engine that orchestrates how content flows through the system. In the [other file](https://github.com/lorenzo-bianco/all-things-ai-agents/blob/main/moderation_agents/listing_moderation/engine/workflow_n8n.json) you can find a json that can be simply copy pasted on n8n to replicate it. This section will explain how it works and how to adapt the whole thing to a specific process. 
+
+## 🤖 Overview of the moderation engine anatomy
 
 At a high level, the process is:
 
-1.	Input
+**1.	Input**
    
 A payload containing all content attributes enters the system (via webhook, sheet update, or manual submission). This payload is the event trigger and the source of truth for all downstream steps.
 
-2.	Content processing
+**2.	Content processing**
 
 The workflow nodes use that payload to call an LLM-powered moderation agent. The agent returns a decision (approval/rejection) and an action (activate/deactivate) that defines what must happen to the content and, if needed, to the user who submitted it.
 
-3.	Output
+**3.	Output**
 
 The agent outputs decision + action + rationale.
 The workflow then executes the required moderation action via API call to your platform or records it for manual review / escalation to a third party (user, moderator, internal team).
