@@ -6,7 +6,7 @@ This is a collection of AI Agents and automation templates used to solve real pr
 
 ⭐ Categories
 
-**Moderation and content safety**
+[**Moderation and content safety**](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents)
 
 AI Agents used to keep product spaces clean and safe by detecting suspicious activity and reduce operational load.
 
