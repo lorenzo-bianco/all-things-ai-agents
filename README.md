@@ -61,4 +61,4 @@ This is my personal collection of what actually works in production environments
 📬 Contact
 
 If you want to talk product, experiments or AI Agents:
-[LinkedIn](https://www.linedin.com/in/lorenzobianco)￼• lorenzobianco012@gmail.com
+[LinkedIn](https://www.linedin.com/in/lorenzobianco)￼ •  lorenzobianco012@gmail.com
