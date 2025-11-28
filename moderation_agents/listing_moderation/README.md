@@ -84,7 +84,11 @@ This agent aims to automate the first moderation layer so humans handle only rea
 ⸻
 
 🚀 Next steps
-	•	Add images as another moderation input
-  •	Add more risk signals
-	•	Expand evaluation set
-	•	Improve suggestions for low-quality text
+
+•	Add images as another moderation input
+
+•	Add more risk signals
+
+•	Expand evaluation set
+
+•	Improve suggestions for low-quality text
