@@ -1,6 +1,6 @@
 # User report moderation agent
 
-AI-powered workflow that processes every user report on a marketplace listing, aggregates report history, enriches context, and returns a final enforcement action. Easy to implement and able to save you money if you are currently moderating content with humans or with linear logic-driven, not-smart workflows.
+AI-powered workflow that processes every user report on a marketplace listing, aggregates report history, enriches context, and returns a final enforcement action. It's very easy to implement and it might make you able to save money if you are currently moderating content with humans or with linear, simple logic-driven workflows.
 
 ## 👉 What this agent does
 
