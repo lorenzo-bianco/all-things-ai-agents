@@ -53,8 +53,6 @@ AI Agents let product teams move faster by:
 
 •	enabling more experiments
 
-•	supporting monetization and retention initiatives
-
 This is my personal collection of what actually works in production environments.
 
 ⸻
