@@ -50,12 +50,18 @@ This agent aims to automate the first moderation layer so humans handle only rea
 ⸻
 
 ⚙️ How it works
-	1.	Reads metatadata and context
-	2.	Identifies risky or prohibited content
-	3.	Checks coherence between fields
-	4.	Evaluates clarity and completeness
-	5.	Produces a structured moderation result
-	6.	Passes output to automation (n8n) for routing
+
+1.	Reads metatadata and context
+
+2.	Identifies risky or prohibited 
+
+3.	Checks coherence between fields
+
+4.	Evaluates clarity and completeness
+
+5.	Produces a structured moderation result
+	
+6.	Passes output to automation (n8n) for routing
 
 ⸻
 
