@@ -20,11 +20,9 @@ The agent outputs decision + action + rationale.
 The workflow then executes the required moderation action via API call to your platform or records it for manual review / escalation to a third party (user, moderator, internal team).
 
 
-
-
 ## 🛠️ Into the specifics of each phase
 
-👉 [Phase 1] Input: triggers and data intake
+👉 PHASE 1 - Input: triggers and data intake
 
 For this agent, incoming data can originate from multiple sources:
 
@@ -50,7 +48,7 @@ Which input path you choose depends on your stack maturity:
 
 ⸻
 
-👉 [Phase 2] Content processing: generating the moderation decision
+👉 PHASE 2 - Content processing: generating the moderation decision
 
 The agent receives the payload only when execution windows allow it. The payload must contain all information required for the agent to make a reliable decision.
 
@@ -88,6 +86,31 @@ _Work in progress..._
 
 ⸻
 
-👉 [Phase 3] Output: orchestration of agent's decisions
+👉 PHASE 3 - Output: orchestration of agent's decisions
 
-_Work in progress..._
+Once the moderation outcome is defined, the agent returns a payload with two key fields:
+
+	•	outcome (accept, reject, manual_review)
+   
+The final decision: approve the content, refuse it, or escalate it to a human reviewer for edge cases.
+
+	•	rationale (string)
+   
+A short explanation describing why that outcome was chosen.
+
+You can extend the output schema in the prompt if your use case requires additional metadata.
+
+These two fields mark the end of the decision phase. The following nodes in the workflow handle:
+
+1.	Logging → storing the moderation outcome for tracking, analytics and iteration.
+   
+2.	Action execution → calling your platform’s API to apply the decision (activate, deactivate, etc.).
+
+For use cases that require notifications, you can add conditional branches:
+
+•	Internal alerts (e.g., if a specific type of rejected item must notify Team X).
+   
+•	User notifications (e.g., informing the owner about the moderation result and any corrective actions needed).
+
+
+
