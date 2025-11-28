@@ -83,3 +83,9 @@ More context → better decisions, but always balanced with cost and execution t
 4. Settings
 
 _Work in progress..._
+
+⸻
+
+👉 [Phase 3] Output: orchestration of agent's decisions
+
+_Work in progress..._
