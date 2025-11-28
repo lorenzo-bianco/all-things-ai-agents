@@ -1,4 +1,4 @@
-## 🛡️ **Moderation Agents for marketplace content quality and safety**
+## 🛡️ **Moderation agents for marketplace content quality and safety**
 
 These AI Agents can be used to keep product spaces clean and safe.
 They can detect risky content, reduce manual review load and improve content quality before publication.
