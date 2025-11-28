@@ -11,11 +11,11 @@ They are great tools for marketplace environments where high-volume user-generat
 
 • Listing Moderation Agent: checks listing titles, descriptions and metadata to detect prohibited content, scams, low quality or inconsistencies.
 
-→ listing_moderation/
+→ [listing_moderation/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/listing_moderation)
 
 • Chat Moderation Agent: flags harmful messages, suspicious patterns and unsafe buyer–seller interactions.
 
-→ chat_moderation/
+→ [chat_moderation/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/chat_moderation)
 
 ⸻
 
