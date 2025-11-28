@@ -5,9 +5,7 @@ They can detect risky content, reduce manual review load and improve content qua
 
 They are great tools for marketplace environments where high-volume user-generated content requires fast, consistent and scalable moderation.
 
-⸻
-
-🔍 **What’s inside**
+### 🔍 **What’s inside**
 
 → [listing_moderation/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/listing_moderator)
 
@@ -21,9 +19,7 @@ They are great tools for marketplace environments where high-volume user-generat
 
 • User Report Moderation Agent: analyzes user reports, aggregates past flags and decides whether to ignore, deactivate the content or deactivate the user.
 
-⸻
-
-👉 **Why these agents matter**
+### 👉 **Why these agents matter**
 
 Moderation issues harm trust, increase operational cost and slow down the publishing flow.
 These agents are built to:
@@ -38,9 +34,7 @@ These agents are built to:
 
 •	support trust & safety teams with scalable automation
 
-⸻
-
-🛠️ **Structure of each agent**
+### 🛠️ **Structure of each agent**
 
 Each agent folder follows a consistent structure:
 
