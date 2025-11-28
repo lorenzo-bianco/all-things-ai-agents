@@ -1,6 +1,6 @@
 # All Things AI Agents
 
-This is a collection of AI Agents and automation templates used to solve real product problems.
+This is a collection of AI Agents and automation templates that can be used to solve real product problems.
 
 ⸻
 
