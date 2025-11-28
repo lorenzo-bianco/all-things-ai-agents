@@ -29,13 +29,13 @@ Agents that assist users and improve the quality of content inside the product.
 
 Every agent folder includes:
 
-•	system_prompt.md – the core logic
+•	engine – automation setup for the whole process
 
-•	examples.md – input/output samples
+•	prompt – the core logics
 
-•	workflow_n8n.json – automation setup
+•	use_cases – real applications
 
-•	evaluation.md – criteria for quality and reliability
+•	requirements – what you need to use it
 
 •	README.md – business context and how the agent solves the problem
 
