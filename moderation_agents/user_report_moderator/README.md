@@ -18,7 +18,7 @@ The AI Agent then produces a final outcome:
 
 ## 👉 High-level flow
 
-1. Input
+### 1. Input
 
 The workflow is triggered every time a report is received.
 Input may come from:
@@ -27,7 +27,7 @@ Input may come from:
 	•	a manual payload (debug/testing)
 
 The payload must include at least:
-
+```
 {
   "item_id": "",
   "reported_user_id": "",
@@ -36,36 +36,44 @@ The payload must include at least:
   "report_reason": "",
   "metadata": { ... }
 }
-
-## 2. Data enrichment
+```
+### 2. Data enrichment
 
 Before calling the AI agent, the workflow gathers context:
-	•	Fetch report history for the same item/user
-	•	Fetch user attributes (past behaviour, trust signals, violations)
-	•	Fetch item details (title, description, category, etc.)
-	•	Fetch user messages (optional, if relevant for abuse checks)
+	
+•	Fetch report history for the same item/user
+
+•	Fetch user attributes (past behaviour, trust signals, violations)
+
+•	Fetch item details (title, description, category, etc.)
+
+•	Fetch user messages (optional, if relevant for abuse checks)
 
 This enriched payload becomes the decision surface.
 
-⸻
-
-## AI Moderation Decision
+### 3. AI Moderation Decision
 
 The LLM agent receives a consolidated JSON containing:
-	•	the incoming report
-	•	all historical reports
-	•	user data
-	•	content data
-	•	messages
-	•	moderation rules
+
+•	the incoming report
+
+•	all historical reports
+
+•	user data
+
+•	content data
+	
+•	messages
+
+•	moderation rules
 
 The agent must output:
-
+```
 {
   "outcome": "ignore | deactivate_content | deactivate_user",
   "rationale": "string"
 }
-
+```
 You may extend the output schema in the prompt as needed (severity score, confidence, etc.).
 
 ## 4. Action Execution
