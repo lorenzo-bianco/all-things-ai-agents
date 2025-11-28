@@ -2,21 +2,13 @@
 
 This is a collection of AI Agents and automation templates that can be used to solve real product problems.
 
-⸻
+# ⭐ Categories
 
-⭐ Categories
+•	[**Moderation and content safety**](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents): AI Agents used to keep product spaces clean and safe by detecting invalid/incorrect content or suspicious activity and reduce operational load.
 
-[**Moderation and content safety**](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents)
+•	**Content & UX**: Agents that assist users and improve the quality of content inside the product.
 
-AI Agents used to keep product spaces clean and safe by detecting invalid/incorrect content or suspicious activity and reduce operational load.
-
-**Content & UX**
-
-Agents that assist users and improve the quality of content inside the product.
-
-⸻
-
-🧱 Structure of each agent
+# 🧱 Structure of each agent
 
 Every agent folder includes:
 
@@ -30,9 +22,7 @@ Every agent folder includes:
 
 •	README.md – business context and how the agent solves the problem
 
-⸻
-
-🧠 Why this repo exists
+# 🧠 Why this repo exists
 
 AI Agents let product teams move faster by:
 
@@ -44,11 +34,7 @@ AI Agents let product teams move faster by:
 
 •	enabling more experiments
 
-This is my personal collection of what actually works in production environments.
-
-⸻
-
-📬 Contact
+# 📬 Contact
 
 If you want to talk product, experiments or AI Agents:
 [LinkedIn](https://www.linedin.com/in/lorenzobianco)￼ •  lorenzobianco012@gmail.com
