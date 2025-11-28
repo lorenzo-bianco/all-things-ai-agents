@@ -10,19 +10,10 @@ This is a collection of AI Agents and automation templates that can be used to s
 
 AI Agents used to keep product spaces clean and safe by detecting invalid/incorrect content or suspicious activity and reduce operational load.
 
-•	Content moderation agents
-
-•	Chat moderation agents
-
-
 **Content & UX**
 
 Agents that assist users and improve the quality of content inside the product.
 
-•	Content description generator
-
-•	Listing improver
-  
 ⸻
 
 🧱 Structure of each agent
