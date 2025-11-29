@@ -18,8 +18,6 @@ Every agent folder includes:
 
 •	use_cases – real applications
 
-•	requirements – what you need to use it
-
 •	README.md – business context and how the agent solves the problem
 
 # 🧠 Why this repo exists
