@@ -76,7 +76,7 @@ The agent must output:
 ```
 You may extend the output schema in the prompt as needed (severity score, confidence, etc.).
 
-## 4. Action Execution
+### 4. Action Execution
 
 Workflow nodes perform operational tasks:
 	•	Log the decision (analytics, audits, continuous tuning)
