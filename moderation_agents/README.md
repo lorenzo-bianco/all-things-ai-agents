@@ -40,12 +40,9 @@ Each agent folder follows a consistent structure:
 
 •	README.md – business context and how the agent works
 
-•	system_prompt.md – core logic
+•	prompt.md – core logics for the AI Agent
 
-•	examples.md – input/output samples
+•	engine – folder with automation setup and json template
 
-•	workflow_n8n.json – automation setup
+•	use_cases – real applications of the agent
 
-•	evaluation.md – criteria for quality and reliability
-
-•	schema.md – input/output contract
