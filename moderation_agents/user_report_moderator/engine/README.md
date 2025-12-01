@@ -54,7 +54,7 @@ Choose the model (OpenAI, Gemini, etc.) based on complexity, latency and budget 
 
 <img width="1911" height="587" alt="template2" src="https://github.com/user-attachments/assets/6db28fde-6b88-4032-8de3-ece65688159d" />
 
-## Phase 3: Action execution and follow-up steps
+## Phase 3: Action execution
 
 Finaly, it's time to execute the action by calling your systems. 
 
