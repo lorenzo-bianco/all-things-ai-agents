@@ -7,6 +7,10 @@ They are great tools for marketplace environments where high-volume user-generat
 
 ### 🔍 **What’s inside**
 
+→ [user report_moderation/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/user_report_moderator)
+
+• User Report Moderation Agent: analyzes user reports, aggregates past flags and decides whether to ignore, deactivate the content or deactivate the user.
+
 → [listing_moderation/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/listing_moderator)
 
 • Listing Moderation Agent: checks listing titles, descriptions and metadata to detect prohibited content, scams, low quality or inconsistencies.
@@ -14,10 +18,6 @@ They are great tools for marketplace environments where high-volume user-generat
 → [chat_moderation/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/chat_moderator)
 
 • Chat Moderation Agent: flags harmful messages, suspicious patterns and unsafe buyer–seller interactions.
-
-→ [chat_moderation/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/user__moderator)
-
-• User Report Moderation Agent: analyzes user reports, aggregates past flags and decides whether to ignore, deactivate the content or deactivate the user.
 
 ### 👉 **Why these agents matter**
 
