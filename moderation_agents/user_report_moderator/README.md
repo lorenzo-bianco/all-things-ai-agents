@@ -117,7 +117,7 @@ The workflow then performs the operational steps:
 }
 ```
 
-## 👉 Example AI output
+## 👉 Example output
 
 ```
 {
