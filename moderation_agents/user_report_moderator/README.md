@@ -106,8 +106,16 @@ Workflow nodes perform operational tasks:
 
 ```
 {
-  "outcome": "deactivate_user",
-  "rationale": "Multiple scam reports in last 7 days, identical scam pattern in user messages, high-risk behavior."
+  "action": "<ignore | disable item | disable user>",
+  "reason": "<short, clear explanation of why this action was selected>",
+  "reports_summary": [
+    {
+      "topic": "...",
+      "content": "...",
+      "reporter": "..."
+    }
+  ],
+  "item_id": "{{ $json.item_id }}"
 }
 ```
 
