@@ -93,7 +93,7 @@ item_id = {{ $json.item_id }}
 ```
 For each report, read and interpret the fields you provide (e.g. topic, content, reason, category, etc.).
 
-The agent should:
+You must:
 
 •	assess whether reports are relevant or consistent
 
@@ -102,6 +102,8 @@ The agent should:
 •	distinguish valid issues from noise or frustration
 
 •	identify signals of potential violations or suspicious behaviour
+
+•	_Add whatever is necessary to your specific use case_
 
 👉 **2. User Metadata Analysis**
 
@@ -140,7 +142,6 @@ If available, analyze messages for domain-specific patterns such as:
 •	unusual or risky communication behaviour
 
 •	_Add whatever is necessary to your specific use case_
-
 
 If the user has never sent messages, interpret this as “no recorded interactions”.
 
