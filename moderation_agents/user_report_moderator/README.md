@@ -60,7 +60,7 @@ Minimum recommended fields:
 ```
 ⸻
 
-**2. Context Gathering + Moderation Decision**
+**2. Context Gathering + Information processing + Moderation Decision**
 
 The agent receives the input payload and then pulls additional context on demand using the available tools.
 
