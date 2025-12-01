@@ -18,8 +18,7 @@ user_report_moderator/
 │   ├── workflow_n8n.json
 │   │   → The full n8n workflow template, ready to import.
 │   └── README.md
-│       → Setup instructions: how to import the JSON, 
-│         how to configure credentials, endpoints, and data sources.
+│       → Setup instructions: how to use and adapt the workflow engine.
 │
 ├── prompt.md
 │   → Contains both prompts used by the LLM:
