@@ -1,47 +1,45 @@
-## 🛡️ **Moderation agents for marketplace content quality and safety**
+## 🛡️ **Moderation AI Agents for marketplace content quality and safety**
 
-These AI Agents can be used to keep product spaces clean and safe.
-They can detect risky content, reduce manual review load and improve content quality before publication.
+A collection of plug-and-play AI Agents designed to keep marketplace environments clean, safe and high-quality.
 
-They are great tools for marketplace environments where high-volume user-generated content requires fast, consistent and scalable moderation.
+They reduce manual review load, detect risky or low-quality content, and enforce consistent decisions at scale.
 
-### 🔍 **What’s inside**
+Perfect for products with large volumes of user-generated content where speed, consistency and trust are critical.
+
+## 🔍 **What’s inside**
 
 → [user report_moderator/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/user_report_moderator)
 
-• User Report Moderation Agent: analyzes user reports, aggregates past flags and decides whether to ignore, deactivate the content or deactivate the user.
+AI Agent that receives a user-submitted report, fetches additional context on demand (past reports, user attributes, item signals, message history, etc) and decides whether to ignore, deactivate content, or deactivate the user.
 
-→ [listing_moderator/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/listing_moderator)
+→ chat_moderator/
 
-• Listing Moderation Agent: checks listing titles, descriptions and metadata to detect prohibited content, scams, low quality or inconsistencies.
+AI Agent that monitors buyer–seller conversations, flagging harmful behaviour, scam patterns, unsafe interactions or policy-violating messages.
 
-→ [chat_moderator/](https://github.com/lorenzo-bianco/all-things-ai-agents/tree/main/moderation_agents/chat_moderator)
+## 🛠️ **Structure of each agent**
 
-• Chat Moderation Agent: flags harmful messages, suspicious patterns and unsafe buyer–seller interactions.
+Each agent folder uses the same structure so you always know where to look:
 
-### 🛠️ **Structure of each agent**
+•	README.md → general context and high-level info about how the agent works
 
-Each agent folder follows a consistent structure:
+•	engine/ → n8n automation setup overview + JSON of the workflow template
 
-•	README.md – business context and how the agent works
+•	prompt.md → system + execution prompts defining the agent’s logic
 
-•	engine – folder with automation setup and json template
+•	use_cases.md → concrete examples showing how the agent behaves
 
-•	prompt.md – core logics for the AI Agent
+## 👉 **Why these agents matter**
 
-•	use_cases.md – real applications of the agent
+Moderation is expensive, slow and inconsistent when powered only by humans or rigid rules.
 
-### 👉 **Why these agents matter**
+These AI Agents are built to:
+	
+•	Reduce manual review time
 
-Moderation issues harm trust, increase operational cost and slow down the publishing flow.
-These agents are built to:
+•	Catch risky cases earlier
 
-•	reduce manual review time
+•	Improve content quality before it reaches users
 
-•	catch risky cases earlier
+•	Enforce clear, explainable decisions
 
-•	improve content quality before it reaches users
-
-•	standardize decision logic
-
-•	support trust & safety teams with scalable automation
+•	Scale trust and safety without growing operational teams
