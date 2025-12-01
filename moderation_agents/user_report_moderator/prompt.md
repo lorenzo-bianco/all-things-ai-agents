@@ -1,6 +1,6 @@
 # Prompt & System Message Templates (generic version)
 
-Below you’ll find two templates designed to power an AI moderation agent inside n8n (or any other workflow engine):
+Below you’ll find two templates designed to power the AI Agent node inside n8n (or any other workflow engine):
 
  • a) **System Message** → defines the agent’s identity, approach, principles, constraints, and allowed actions.
   
