@@ -26,7 +26,9 @@ The agent must be configured with four components:
 
 **a) Prompt**
 
-The dedicated prompt folder in this repo contains all the specifics, but the general rule is to always explain the context (What platform is this? What type of reports? What type of items? Who reports? How do they report? What is acceptable / not acceptable?) and encode some fundamentals logic (“if X happens, do Y”).
+The [dedicated prompt folder](https://github.com/lorenzo-bianco/all-things-ai-agents/blob/main/moderation_agents/user_report_moderator/prompt.md) in this repo contains all the specifics.
+
+However, the general rule is to always explain the context (What platform is this? What type of reports? What type of items? Who reports? How do they report? What is acceptable / not acceptable?) and encode some fundamentals logic (“if X happens, do Y”).
 
 Then feed all relevant values from the payload and explain what they represent (e.g., price = 40 means the marketplace item costs 40).
 
