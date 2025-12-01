@@ -1,4 +1,4 @@
-# 📌 Prompt & System Message Templates (generic version)
+# 📌 Prompt & System Message Templates
 
 Below you’ll find two templates designed to power the AI Agent node inside n8n (or any other workflow engine):
 
