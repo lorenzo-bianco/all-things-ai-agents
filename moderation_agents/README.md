@@ -1,6 +1,6 @@
 ## 🛡️ **Moderation AI Agents for marketplace content quality and safety**
 
-A collection of plug-and-play AI Agents designed to keep marketplace environments clean, safe and high-quality.
+Here you'll find a collection of plug-and-play AI Agents designed to keep marketplace environments clean, safe and high-quality.
 
 They reduce manual review load, detect risky or low-quality content, and enforce consistent decisions at scale.
 
