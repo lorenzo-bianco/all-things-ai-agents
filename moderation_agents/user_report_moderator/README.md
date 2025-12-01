@@ -2,7 +2,7 @@
 
 This is a plug-and-play, AI-powered moderation agent that proactively starts whenever a user submits a report.
 
-It acts immediately to address issues raised by users, preventing a single bad experience from spreading to others.
+It acts immediately to address issues raised by users, preventing a bad experience from spreading to others.
 
 Once triggered, the agent fetches all relevant context on demand (item report history, user attributes, item details, user message history, and any other data sources you connect) and returns a single enforcement action with a clear, auditable rationale.
 
