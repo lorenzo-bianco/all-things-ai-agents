@@ -54,5 +54,3 @@ This may be another HTTP Request configured with your email/notification provide
 This creates a reliable audit trail and enables aggregate analysis to refine moderation rules over time.
 
 <img width="1907" height="585" alt="template3" src="https://github.com/user-attachments/assets/781eca82-eb8f-4a74-bf05-53ef698b15c5" />
-
-⸻
