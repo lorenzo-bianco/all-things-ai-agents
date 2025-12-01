@@ -72,7 +72,8 @@ Depending on the specific scenario, it may fetch:
 
 •	User message history (if your product has a chat)
 
-•	any other datasource you connect
+•	Any other datasource you connect
+
 
 The agent decides what to fetch and when to fetch it, based on the logic defined in the prompt.
 
