@@ -40,9 +40,9 @@ Each agent folder follows a consistent structure:
 
 •	README.md – business context and how the agent works
 
-•	prompt.md – core logics for the AI Agent
-
 •	engine – folder with automation setup and json template
 
-•	use_cases – real applications of the agent
+•	prompt.md – core logics for the AI Agent
+
+•	use_cases.md – real applications of the agent
 
