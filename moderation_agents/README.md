@@ -19,6 +19,18 @@ They are great tools for marketplace environments where high-volume user-generat
 
 • Chat Moderation Agent: flags harmful messages, suspicious patterns and unsafe buyer–seller interactions.
 
+### 🛠️ **Structure of each agent**
+
+Each agent folder follows a consistent structure:
+
+•	README.md – business context and how the agent works
+
+•	engine – folder with automation setup and json template
+
+•	prompt.md – core logics for the AI Agent
+
+•	use_cases.md – real applications of the agent
+
 ### 👉 **Why these agents matter**
 
 Moderation issues harm trust, increase operational cost and slow down the publishing flow.
@@ -33,16 +45,3 @@ These agents are built to:
 •	standardize decision logic
 
 •	support trust & safety teams with scalable automation
-
-### 🛠️ **Structure of each agent**
-
-Each agent folder follows a consistent structure:
-
-•	README.md – business context and how the agent works
-
-•	engine – folder with automation setup and json template
-
-•	prompt.md – core logics for the AI Agent
-
-•	use_cases.md – real applications of the agent
-
