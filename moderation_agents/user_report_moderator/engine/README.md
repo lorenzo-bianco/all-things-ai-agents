@@ -20,7 +20,7 @@ You can forward all reports to the agent, or apply quantitative filters (e.g., o
 
 <img width="1912" height="587" alt="template1" src="https://github.com/user-attachments/assets/50d35621-3fc5-4418-a19a-34dacca4c281" />
 
-## Phase 2: Information processing
+## Phase 2: Context Gathering + Information processing + Moderation Decision
 
 The agent must be configured with four components:
 
