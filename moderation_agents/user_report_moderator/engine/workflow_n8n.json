@@ -1,1 +1,532 @@
-
+{
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o4-mini",
+          "mode": "list",
+          "cachedResultName": "o4-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1552,
+        1680
+      ],
+      "id": "a4132ffb-2081-446f-8d2f-359a839586ff",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "your-moderation-webhook-path",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        1440
+      ],
+      "id": "your_id",
+      "name": "Webhook1",
+      "webhookId": "your_id"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_SPREADSHEET_ID"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "Reports"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        912,
+        1440
+      ],
+      "id": "20357780-267f-4ce7-be98-882c6127c969",
+      "name": "GET all reports2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_SPREADSHEET_ID"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "Reports"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1712,
+        1680
+      ],
+      "id": "545e76c4-c956-464f-b6d9-0c569f05f80b",
+      "name": "GET all reports3"
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "projectId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_GCP_PROJECT_ID"
+        },
+        "sqlQuery": "SELECT\n  *\nFROM\n  `YOUR_PROJECT.YOUR_DATASET.YOUR_TABLE`\nWHERE\n  id = {{ $json.item_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleBigQueryTool",
+      "typeVersion": 2.1,
+      "position": [
+        1856,
+        1680
+      ],
+      "id": "0dc9c845-851a-4fb1-b3dc-1613000e19a0",
+      "name": "GET user info1"
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "projectId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_GCP_PROJECT_ID"
+        },
+        "sqlQuery": "SELECT\n  *\nFROM\n  `YOUR_PROJECT.YOUR_DATASET.YOUR_TABLE`\nWHERE\n  id = {{ $json.item_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleBigQueryTool",
+      "typeVersion": 2.1,
+      "position": [
+        2000,
+        1680
+      ],
+      "id": "0a6ed3e1-73d8-4cd6-a134-0fa495dffa5d",
+      "name": "GET user messages1"
+    },
+    {
+      "parameters": {
+        "url": "=https://www.your-public-domain.com/items/{{$json.item_id}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        2160,
+        1680
+      ],
+      "id": "ccfaf2ad-ab7f-4d70-bbcf-20f45b71daca",
+      "name": "GET item info1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cc2e1590-7b12-404a-bb47-a90dd5f20c1d",
+              "leftValue": "={{ $json.action }}",
+              "rightValue": "ignore",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2160,
+        1424
+      ],
+      "id": "8204dbb1-5178-4a64-b0f2-7b4e409eeee2",
+      "name": "action is \"ignore\"1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://your-backend-domain.com/moderation/action",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"item_id\": $json.item_id,\n  \"action\": \"{{ $json.action }}\",\n  \"workflow_id\": \"ai-moderation-workflow\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        2576,
+        1440
+      ],
+      "id": "3356f02a-99f8-4e1e-a2be-9a414b6a6fb8",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_SPREADSHEET_ID"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "ModerationLogs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {}
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2832,
+        1632
+      ],
+      "id": "660907df-2be5-440a-9841-8eeaaee4eb27",
+      "name": "Log Agent Action1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2832,
+        1440
+      ],
+      "id": "aad1f38f-6a41-47fb-be5d-1ee584ff9c5d",
+      "name": "Send Update1",
+      "webhookId": "70a12322-cadb-460d-af6b-cb407b6082e1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "560f2edd-ef2c-4f33-abd2-7a5eba3c203c",
+              "leftValue": "={{ $json.data[0].count_Listing_ID }}",
+              "rightValue": 2,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1264,
+        1440
+      ],
+      "id": "afcbfe1c-a19a-4696-ba7b-c1f63f4448e0",
+      "name": "Count is ≥n1"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "field": "ID"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1.1,
+      "position": [
+        1088,
+        1440
+      ],
+      "id": "ee6775fe-7930-4919-9736-8bf160c828d4",
+      "name": "Reports counts1"
+    },
+    {
+      "parameters": {
+        "content": "## This first stage handles incoming reports, either via webhook or from a new row added to the database. \n\nEach new report triggers a fetch of all reports linked to the same user or item (using the ID stored in each record). \n\nA configurable counter then decides whether the flow should continue: if the number of reports exceeds the threshold (e.g., >1), the case moves forward and the agent starts monitoring. \n\nTeams with a stricter policy can choose to forward every case, even when there’s only one report.",
+        "height": 736,
+        "width": 832
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        656,
+        1104
+      ],
+      "typeVersion": 1,
+      "id": "c276ca13-4c37-4575-a3d7-7a5139836959",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_SPREADSHEET_ID"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "Reports"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1600
+      ],
+      "id": "e6995de6-9181-477c-8823-ddfd11b1c2f7",
+      "name": "Report added1"
+    },
+    {
+      "parameters": {
+        "content": "## Each case handed to the agent is processed with a fully customizable logic, defined by the prompt and by the toolset you expose to the agent.\n\nThe prompt should describe what kind of reports the agent receives (user-submitted reports, automated server-side flags), how they must be interpreted (structured categories vs free-text), and what type of item is under review (listing, photo, profile, etc.).\n\nThe toolset provides the depth of context the agent can reason on. Typical tools include:\n• fetch all reports linked to the case\n• fetch user metadata for the reported owner/profile (behaviour signals, publishing history, risk attributes)\n• fetch messaging history if your product includes in-app messages\n• fetch the HTML of the listing itself via its public URL to inspect the actual content\n\nThe agent then decides which action should be executed. The output can be a simple “ignore” when no intervention is needed, or an actionable operation.",
+        "height": 736,
+        "width": 944
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1504,
+        1104
+      ],
+      "typeVersion": 1,
+      "id": "53d3d102-01a1-480e-8a35-e4a831da0fb0",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## After the agent defines the action, the flow ends with three steps.\n\n1. Execute the action (when it’s not “ignore”) via an HTTP Request configured with your platform’s endpoint. The payload should include the operation to perform, the target item, and a unique identifier for debugging and moderation-decision tracking.\n\n2. Send notifications (internal and/or external). In this example Gmail is used, but in a real platform this would likely be another HTTP Request toward your email/notification provider (e.g., Braze, Mailchimp), configured with the proper endpoint and API key.\n\n3. Log the outcome in the database (Google Sheet here, or any other storage). This creates an auditable trail of decisions for later analysis, QA, or model refinement.\n",
+        "height": 736,
+        "width": 752
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2464,
+        1104
+      ],
+      "typeVersion": 1,
+      "id": "0704ebc2-d042-45ae-ba54-dacca4d354bd",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=",
+        "options": {
+          "systemMessage": ""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        1728,
+        1424
+      ],
+      "id": "2ef7c373-664e-4d0b-8127-24b4e4bfbd9d",
+      "name": "AI Agent2"
+    }
+  ],
+  "connections": {
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "GET all reports2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET all reports2": {
+      "main": [
+        [
+          {
+            "node": "Reports counts1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET all reports3": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET user info1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET user messages1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET item info1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "action is \"ignore\"1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Log Agent Action1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send Update1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Count is ≥n1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reports counts1": {
+      "main": [
+        [
+          {
+            "node": "Count is ≥n1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Report added1": {
+      "main": [
+        [
+          {
+            "node": "GET all reports2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "action is \"ignore\"1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {}
+}
