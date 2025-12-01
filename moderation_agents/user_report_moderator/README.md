@@ -1,4 +1,4 @@
-# User Report Moderation Agent
+# 🤖 User Report Moderation Agent
 
 This is a plug-and-play, AI-powered moderation agent that proactively starts whenever a user submits a report.
 
