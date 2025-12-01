@@ -1,32 +1,52 @@
-# User report moderation agent
+# User Report Moderation Agent
 
-AI-powered workflow that processes every user report on a marketplace listing, aggregates report history, enriches context, and returns a final enforcement action. It's very easy to implement and it might make you able to save money if you are currently moderating content with humans or with linear, simple logic-driven workflows.
+This is a plug-and-play, AI-powered moderation agent that proactively starts whenever a user submits a report.
 
-## 👉 What this agent does
+Once triggered, the agent fetches all relevant context on demand (item report history, user attributes, item details, user message history, and any other data sources you connect) and returns a single enforcement action with a clear, auditable rationale.
 
-This agent receives a reported item (listing) and automatically decides what to do with it by combining:
-	•	the current report received
-	•	the history of reports for that item/user (from Google Sheets, DB, or any data source)
-	•	the reported user’s attributes
-	•	the content attributes
-	•	the user’s past messages (if provided)
+The result is a consistent and scalable moderation pipeline that keeps your marketplace safe and clean without adding operational overhead.
 
-The AI Agent then produces a final outcome:
-	•	ignore → reports not credible or false positive
-	•	deactivate_content → content violates rules
-	•	deactivate_user → severe abuse, repeat offender, or high-risk behavior
+## 👉 Repository structure 
+
+```
+user_report_moderator/
+│
+├── README.md
+│   → Overview of the agent, high-level behaviour, examples.
+│
+├── engine/
+│   ├── workflow_n8n.json
+│   │   → The full n8n workflow template, ready to import.
+│   └── README.md
+│       → Setup instructions: how to import the JSON, 
+│         how to configure credentials, endpoints, and data sources.
+│
+├── prompt.md
+│   → Contains both prompts used by the LLM:
+│       1. System prompt (identity + rules + constraints)
+│       2. Execution prompt (the step-by-step moderation logic)
+│
+└── use_cases.md
+    → Practical examples showing how the agent behaves
+      with different scenarios, inputs, and expected outputs.
+```
 
 ## 👉 High-level flow
 
-### 1. Input
+**1. Input**
 
-The workflow is triggered every time a report is received.
-Input may come from:
-	•	a webhook POST from your platform
-	•	a Google Sheet row created/updated
-	•	a manual payload (debug/testing)
+Triggered whenever a report arrives through any of the supported sources:
 
-The payload must include at least:
+•	Webhook POST from your platform
+
+•	New row in a Google Sheet
+
+•	DB event or message queue
+
+•	Manual payload for debugging
+
+Minimum recommended fields:
+
 ```
 {
   "item_id": "",
@@ -37,59 +57,52 @@ The payload must include at least:
   "metadata": { ... }
 }
 ```
-### 2. Data enrichment
+⸻
 
-Before calling the AI agent, the workflow gathers context:
-	
-•	Fetch report history for the same item/user
+**2. Context Gathering + Moderation Decision**
 
-•	Fetch user attributes (past behaviour, trust signals, violations)
+The agent receives the input payload and then pulls additional context on demand using the available tools.
 
-•	Fetch item details (title, description, category, etc.)
+Depending on the specific scenario, it may fetch:
 
-•	Fetch user messages (optional, if relevant for abuse checks)
+•	Item report history (other reports about the same item)
 
-This enriched payload becomes the decision surface.
+•	User attributes (behaviour, trust signals, past violations of the reported item owner)
 
-### 3. AI Moderation Decision
+•	Item details (description, metadata, category, content signals)
 
-The LLM agent receives a consolidated JSON containing:
+•	User message history (if your product has a chat)
 
-•	the incoming report
+•	any other datasource you connect
 
-•	all historical reports
+The agent decides what to fetch and when to fetch it, based on the logic defined in the prompt.
 
-•	user data
+After combining the collected signals, the agent outputs one final action:
 
-•	content data
-	
-•	messages
-
-•	moderation rules
-
-The agent must output:
 ```
 {
-  "outcome": "ignore | deactivate_content | deactivate_user",
-  "rationale": "string"
+  "action": "ignore | disable_item | disable_user",
+  "reason": "string"
 }
 ```
-You may extend the output schema in the prompt as needed (severity score, confidence, etc.).
 
-### 4. Action Execution
+You can extend the schema (severity, confidence score, flags, metadata) directly inside the prompt.
 
-Workflow nodes perform operational tasks:
-	•	Log the decision (analytics, audits, continuous tuning)
-	•	Send API call to apply the enforcement:
-	•	deactivate item
-	•	deactivate user
-	•	or do nothing
-	•	Optional notifications
-	•	internal team alerts
-	•	user communication
+⸻
 
-### 👉 Example input
+**3. Action Execution**
 
+The workflow then performs the operational steps:
+
+•	Calls your API to enforce the decision
+
+•	Logs the decision (for analytics, monitoring, audits purposes)
+
+•	Sends optional notifications (internal alert or external user communication)
+
+⸻
+
+## 👉 Example input
 ```
 {
   "item_id": "A1234",
@@ -102,45 +115,31 @@ Workflow nodes perform operational tasks:
 }
 ```
 
-### 👉 Example AI output
+## 👉 Example AI output
 
 ```
 {
-  "action": "<ignore | disable item | disable user>",
-  "reason": "<short, clear explanation of why this action was selected>",
+  "action": "disable_item",
+  "reason": "Multiple consistent reports and suspicious off-platform contact",
   "reports_summary": [
     {
-      "topic": "...",
-      "content": "...",
-      "reporter": "..."
+      "topic": "scam",
+      "content": "asked for external payment link",
+      "reporter": "user_11"
     }
   ],
-  "item_id": "{{ $json.item_id }}"
+  "item_id": "A1234"
 }
 ```
 
-## 👉 When to use this agent
-
-Use it when you need to:
-
-•	process all incoming reports automatically
-  
-•	enforce actions consistently
-  
-•	remove bias or manual inconsistencies
-
-•	scale trust & safety without proportional headcount
-
-•	create a clean, auditable moderation pipeline
-
 ## 👉 Requirements
+	
+•	Event source (webhook / Sheets / DB / queue)
 
-•	An event source (webhook, sheet, or queue)
+•	Datasource for historical reports (recommended)
 
-•	DB or Sheet containing report history (optional but recommended)
-
-•	API endpoints to deactivate items/users
+•	Enforcement API endpoints
 
 •	LLM provider (OpenAI, Anthropic, Gemini, etc.)
 
-•	n8n (or similar) as the orchestration layer
+•	n8n (or similar orchestration layer)
