@@ -1,4 +1,4 @@
-## 🛡️ **Moderation AI Agents for marketplace content quality and safety**
+# 🛡️ **Moderation AI Agents for marketplace content quality and safety**
 
 Here you'll find a collection of plug-and-play AI Agents designed to keep marketplace environments clean, safe and high-quality.
 
