@@ -34,9 +34,17 @@ Then feed all relevant values from the payload and explain what they represent (
 
 **b) Tools**
 
-Detail the tools the agent can call (e.g., GET_USER_INFO returns all user attributes, including “number_of_reports”) and when to use them.
+The agent receives the report payload and then chooses which tools to call based on what the case requires. Nothing should be fetched unless the agent decides it’s needed.
 
-Configure these tools according to your actual data sources, tables, and collection logic.
+• GET ALL REPORTS: Returns all past reports for the same item/user. Used when the agent needs to check patterns or repeated complaints.
+
+• GET USER INFO: Returns all attributes available for the reported user. Used when the agent needs to understand the user’s history or behaviour.
+
+• GET ITEM INFO: Returns item details and whether the item is still online. Used when the agent needs to inspect the content or confirm availability.
+
+• GET USER MESSAGES: Returns the user’s recent messages. Used when the agent needs to assess communication patterns or suspicious behaviour.
+
+Configure each tool with your own data sources (BigQuert, Sheets, SQL, APIs, etc.) and the agent will call only what’s relevant for the report.
 
 **c) Desired output**
 
