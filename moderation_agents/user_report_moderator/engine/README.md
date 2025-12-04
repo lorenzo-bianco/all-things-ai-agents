@@ -24,6 +24,8 @@ You can forward all reports to the agent, or apply quantitative filters (e.g., o
 
 The agent must be configured with four components:
 
+___
+
 **a) Prompt**
 
 The [dedicated prompt folder](https://github.com/lorenzo-bianco/all-things-ai-agents/blob/main/moderation_agents/user_report_moderator/prompt.md) in this repo contains all the specifics.
@@ -31,6 +33,8 @@ The [dedicated prompt folder](https://github.com/lorenzo-bianco/all-things-ai-ag
 However, the general rule is to always explain the context (What platform is this? What type of reports? What type of items? Who reports? How do they report? What is acceptable / not acceptable?) and encode some fundamentals logic (“if X happens, do Y”).
 
 Then feed all relevant values from the payload and explain what they represent (e.g., price = 40 means the marketplace item costs 40).
+
+___
 
 **b) Tools**
 
@@ -46,6 +50,8 @@ The agent receives the report payload and then chooses which tools to call based
 
 Configure each tool with your own data sources (BigQuert, Sheets, SQL, APIs, etc.) and the agent will call only what’s relevant for the report.
 
+___
+
 **c) Desired output**
 
 Specify the expected output format. 
@@ -55,6 +61,8 @@ Typically:
 • action → what must be executed
 
 • rationale → why the agent chose it (crucial for debugging, QA, and iterative improvement)
+
+___
 
 **d) Model selection**
 
